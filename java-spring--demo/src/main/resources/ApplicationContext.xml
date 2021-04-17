@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Spring之IoC-->
+    <bean id="student" class="com.spring.domain.Student">
+        <property name="sid" value="1"/>
+        <property name="sname" value="zs"/>
+        <property name="ssex" value="男"/>
+        <property name="sage" value="21"/>
+    </bean>
+
+    <!--Spring之DI-->
+    <!-- 对象注入1 -->
+    <!--方式一：嵌套注入-->
+    <!--好处是：对象里面的那个属性对象是私有的，不想被其他人访问-->
+    <bean id="room" class="com.spring.domain.Room">
+        <property name="name" value="001"></property>
+        <property name="computer">
+            <bean class="com.spring.domain.Computer">
+                <property name="name" value="联想"></property>
+                <property name="brand" value="s5"></property>
+                <property name="price" value="8000"></property>
+            </bean>
+        </property>
+    </bean>
+    <!--方式二：使用ref属性进行外部引入-->
+<!--    <bean id="computer" class="com.spring.domain.Computer">-->
+<!--        <property name="name" value="联想"></property>-->
+<!--        <property name="brand" value="s5"></property>-->
+<!--        <property name="price" value="8000"></property>-->
+<!--    </bean>-->
+<!--    <bean id="room" class="com.spring.domain.Room">-->
+<!--        <property name="name" value="001"></property>-->
+<!--        <property name="computer" ref="computer"></property>-->
+<!--    </bean>-->
+
+    <!-- 对象注入2 -->
+    <!--方式一：内部嵌套给controller、service、dao层对象注入-->
+<!--    <bean id="controller" class="com.spring.controller.StudentController">-->
+<!--        <constructor-arg name="service">-->
+<!--            <bean class="com.spring.service.StudentService">-->
+<!--                <constructor-arg name="dao">-->
+<!--                    <bean class="com.spring.dao.StudentDao"></bean>-->
+<!--                </constructor-arg>-->
+<!--            </bean>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+
+<!--    <bean id="controller" class="com.spring.controller.StudentController">-->
+<!--        <property name="service">-->
+<!--            <bean class="com.spring.service.StudentService">-->
+<!--                <property name="dao">-->
+<!--                    <bean class="com.spring.dao.StudentDao"></bean>-->
+<!--                </property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <!--方式二：外部引入controller、service、dao层对象，给聚合对象注入值-->
+<!--    <bean id="controller" class="com.spring.controller.StudentController">-->
+<!--        <constructor-arg name="service" ref="service"></constructor-arg>-->
+<!--    </bean>-->
+<!--    <bean id="service" class="com.spring.service.StudentService">-->
+<!--        <constructor-arg name="dao" ref="dao"></constructor-arg>-->
+<!--    </bean>-->
+<!--    <bean id="dao" class="com.spring.dao.StudentDao"></bean>-->
+
+    <!--自动注入方式一：通过构造方法注入 controller、service、dao层。-->
+<!--    <bean id="controller" class="com.spring.controller.StudentController" autowire="constructor"></bean>-->
+<!--    <bean id="service" class="com.spring.service.StudentService" autowire="constructor"></bean>-->
+<!--    <bean id="dao" class="com.spring.dao.StudentDao"></bean>-->
+    <!--自动注入方式二：通过set方法的byName方式 controller、service、dao层。-->
+    <bean id="controller" class="com.spring.controller.StudentController" autowire="byName"></bean>
+    <bean id="service" class="com.spring.service.StudentService" autowire="byName"></bean>
+    <bean id="dao" class="com.spring.dao.StudentDao"></bean>
+    <!--自动注入方式三：通过set方法的byType方式 controller、service、dao层。-->
+<!--    <bean id="controller" class="com.spring.controller.StudentController" autowire="byType"></bean>-->
+<!--    <bean id="service" class="com.spring.service.StudentService" autowire="byType"></bean>-->
+<!--    <bean id="dao1" class="com.spring.dao.StudentDao"></bean>-->
+
+
+    <!-- Spring之JdbcTemplate -->
+    <!--0.创建一个数据源对象 原生DriverManager 获取一个连接-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!--数据库驱动类-->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <!--连接数据库的URL-->
+        <property name="url" value="jdbc:mysql://localhost:3306/mysql_test?useSSL=false&amp;characterEncoding=UTF-8"/>
+        <!--连接数据库的账号名-->
+        <property name="username" value="root"/>
+        <!--连接数据库的密码-->
+        <property name="password" value="lzb123456"/>
+    </bean>
+
+    <!--1.想要使用SpringJDBC提供的操作 需要配置一个JDBC模板 JdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <!--需要给当前这个template对象配置一个数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+</beans>
