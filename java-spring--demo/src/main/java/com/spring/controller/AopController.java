@@ -11,9 +11,9 @@ public class AopController {
 
     public void test(){
         System.out.println("目标方法执行啦");
-//        String str = "123";
-//        str = null;
-//        str.length();
+        String str = "123";
+        str = null;
+        str.length();
     }
 
 }

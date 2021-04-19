@@ -5,7 +5,9 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
+    <!-- 将目标对象交由spring管理 -->
     <bean id="aopController" class="com.spring.controller.AopController"/>
+    <!-- 将切面对象交由spring管理 -->
     <bean id="aspectOne" class="com.spring.aspect.AspectOne"/>
     <bean id="aspectTwo" class="com.spring.aspect.AspectTwo"/>
 
@@ -37,6 +39,5 @@
         </aop:aspect>
 
     </aop:config>
-
 
 </beans>
