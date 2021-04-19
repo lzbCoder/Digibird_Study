@@ -73,9 +73,9 @@
     <!--    <bean id="service" class="com.spring.service.StudentService" autowire="constructor"></bean>-->
     <!--    <bean id="dao" class="com.spring.dao.StudentDao"></bean>-->
     <!--自动注入方式二：通过set方法的byName方式 controller、service、dao层。-->
-    <bean id="controller" class="com.spring.controller.StudentController" autowire="byName"></bean>
-    <bean id="service" class="com.spring.service.StudentService" autowire="byName"></bean>
-    <bean id="dao" class="com.spring.dao.StudentDao"></bean>
+<!--    <bean id="controller" class="com.spring.controller.StudentController" autowire="byName"></bean>-->
+<!--    <bean id="service" class="com.spring.service.StudentService" autowire="byName"></bean>-->
+<!--    <bean id="dao" class="com.spring.dao.StudentDao"></bean>-->
     <!--自动注入方式三：通过set方法的byType方式 controller、service、dao层。-->
     <!--    <bean id="controller" class="com.spring.controller.StudentController" autowire="byType"></bean>-->
     <!--    <bean id="service" class="com.spring.service.StudentService" autowire="byType"></bean>-->

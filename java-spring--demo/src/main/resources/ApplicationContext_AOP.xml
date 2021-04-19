@@ -1,8 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <bean id="aopController" class="com.spring.controller.AopController"/>
+    <bean id="aspectOne" class="com.spring.aspect.AspectOne"/>
+    <bean id="aspectTwo" class="com.spring.aspect.AspectTwo"/>
+
+    <!-- 给切面对象做一个说明 -->
+    <aop:config>
+        <!-- 定义切入点(目标对象中的方法)。
+        可以放在这里，让所有切面共用，也可以放在每个<aop:aspect>中，只让某个切面使用。 -->
+        <aop:pointcut id="mycut" expression="execution(* com.spring.controller.AopController.test())"/>
+
+        <!-- 第一个切面,ref属性指定哪一个切面对象 -->
+        <aop:aspect id="as1" ref="aspectOne">
+            <!-- 切面对象做的建议方式(连接点的执行，连接点是切面中的方法) -->
+            <!-- 设置连接点方法执行的方式(建议/通知) -->
+            <aop:before method="beforeMethod" pointcut-ref="mycut"/>
+            <aop:around method="aroundMethod" pointcut-ref="mycut"/>
+            <aop:after-returning method="afterReturningMethod" pointcut-ref="mycut"/>
+            <aop:after-throwing method="afterThrowingMethod" pointcut-ref="mycut"/>
+            <aop:after method="afterMethod" pointcut-ref="mycut"/>
+        </aop:aspect>
+
+        <!-- 第二个切面 -->
+        <aop:aspect id="as2" ref="aspectTwo">
+            <!-- 切面对象做的建议方式(连接点的执行 连接点是切面中的方法) -->
+            <aop:before method="beforeMethod" pointcut-ref="mycut"/>
+            <aop:around method="aroundMethod" pointcut-ref="mycut"/>
+            <aop:after-returning method="afterReturningMethod" pointcut-ref="mycut"/>
+            <aop:after-throwing method="afterThrowingMethod" pointcut-ref="mycut"/>
+            <aop:after method="afterMethod" pointcut-ref="mycut"/>
+        </aop:aspect>
+
+    </aop:config>
 
 
 </beans>

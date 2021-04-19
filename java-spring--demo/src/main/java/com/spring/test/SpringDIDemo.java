@@ -1,13 +1,14 @@
 package com.spring.test;
 
 import com.spring.domain.Room;
-import com.spring.domain.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
+ * 该类用于对{@code spring}中{@code DI}思想进行演示
+ *
  * @author lzb
  * @version 1.0
  * @since 2021/4/16
