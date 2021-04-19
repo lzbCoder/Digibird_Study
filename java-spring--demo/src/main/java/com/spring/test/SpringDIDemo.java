@@ -22,7 +22,7 @@ public class SpringDIDemo {
      *  {@code id}，来创建该{@code bean}的对象。
      */
     public static void main(String[] args) {
-        BeanFactory factory = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+        BeanFactory factory = new ClassPathXmlApplicationContext("ApplicationContext*.xml");
         Room room = (Room) factory.getBean("room");
         LOGGER.info("Room对象为" + room);
     }

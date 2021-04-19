@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Spring之JdbcTemplate -->
+    <!--0.创建一个数据源对象 原生DriverManager 获取一个连接-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!--数据库驱动类-->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <!--连接数据库的URL-->
+        <property name="url" value="jdbc:mysql://localhost:3306/mysql_test?useSSL=false&amp;characterEncoding=UTF-8"/>
+        <!--连接数据库的账号名-->
+        <property name="username" value="root"/>
+        <!--连接数据库的密码-->
+        <property name="password" value="lzb123456"/>
+    </bean>
+
+    <!--1.想要使用SpringJDBC提供的操作 需要配置一个JDBC模板 JdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <!--需要给当前这个template对象配置一个数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+</beans>

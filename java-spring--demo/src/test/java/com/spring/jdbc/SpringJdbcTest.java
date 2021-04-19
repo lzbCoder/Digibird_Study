@@ -23,7 +23,7 @@ import java.util.List;
 // 表示继承了SpringExtension类 Junit5
 @ExtendWith(SpringExtension.class)
 //加载spring容器
-@ContextConfiguration(locations = { "classpath:ApplicationContext.xml"})
+@ContextConfiguration(locations = { "classpath:ApplicationContext*.xml"})
 public class SpringJdbcTest {
 
     /** 将对象jdbcTemplate自动注入 */

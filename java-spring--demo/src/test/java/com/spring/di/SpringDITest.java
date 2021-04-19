@@ -20,7 +20,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  * @since 2021/4/14
  */
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = { "classpath:ApplicationContext.xml"})
+@ContextConfiguration(locations = { "classpath:ApplicationContext*.xml"})
 public class SpringDITest {
 
     /** 定义日志记录器，用于打印日志 */

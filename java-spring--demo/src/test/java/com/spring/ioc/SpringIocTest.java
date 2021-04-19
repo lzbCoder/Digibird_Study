@@ -19,7 +19,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 // 表示继承了SpringExtension类 Junit5
 @ExtendWith(SpringExtension.class)
 //加载spring容器
-@ContextConfiguration(locations = { "classpath:ApplicationContext.xml"})
+@ContextConfiguration(locations = { "classpath:ApplicationContext*.xml"})
 public class SpringIocTest {
 
     /** 定义日志记录器，用于打印日志 */

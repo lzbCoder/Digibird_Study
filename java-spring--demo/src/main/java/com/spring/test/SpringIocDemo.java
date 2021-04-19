@@ -23,7 +23,7 @@ public class SpringIocDemo {
      *  {@code id}，来创建该{@code bean}的对象。
      */
     public static void main(String[] args) {
-        BeanFactory factory = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+        BeanFactory factory = new ClassPathXmlApplicationContext("ApplicationContext*.xml");
         Student student = (Student) factory.getBean("student");
         LOGGER.info("Student对象为" + student);
 
