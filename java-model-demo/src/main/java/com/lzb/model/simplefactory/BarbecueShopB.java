@@ -1,7 +1,7 @@
 package com.lzb.model.simplefactory;
 
 /**
- * 该类为烧烤店A
+ * 该类为烧烤店B
  *
  * @author lzb
  * @version 1.0
