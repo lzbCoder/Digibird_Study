@@ -36,8 +36,8 @@ public class TestMain {
 //        shopB.saleKebab();
 
         /**
-         * 方式三：简单工厂方式(静态工厂方法)。想要什么对象，只需要向工厂要，就会返回一个
-         *       烧烤店，该烧烤店是一个接口，用户并不知道是哪个具体的烧烤店。
+         * 方式三：简单工厂方式(静态工厂方法)。想要什么对象，只需要向工厂要，
+         * 就会返回一个烧烤店，该烧烤店是一个接口，用户并不知道是哪个具体的烧烤店。
          */
         Barbecue shopA = BarbecueFactory.getBarbecue("烧烤店A");
         shopA.saleKebab();
