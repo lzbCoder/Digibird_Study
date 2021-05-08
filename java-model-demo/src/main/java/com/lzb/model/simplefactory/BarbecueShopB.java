@@ -1,5 +1,7 @@
 package com.lzb.model.simplefactory;
 
+import java.util.stream.Stream;
+
 /**
  * 该类为烧烤店B
  *
@@ -13,5 +15,4 @@ public class BarbecueShopB implements Barbecue{
     public void saleKebab(){
         System.out.println("烧烤店B的烤串");
     }
-
 }
