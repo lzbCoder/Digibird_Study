@@ -25,6 +25,5 @@ public class TestMain {
         huaPhone.call();
         sonyTV.see();
         samSungTV.see();
-
     }
 }
