@@ -5,8 +5,9 @@ import java.util.Iterator;
 
 /**
  * @program: Digibird_Study
- * @description: 强制步入(Force Step Info Alt+Shift+F7)：
- *                      进入官方类库方法，帮助我们学习和查看JDK源码
+ * @description: 强制步入(Force Step Info Alt + Shift + F7)：
+ *                      进入官方类库方法，帮助我们学习和查看JDK源码，当然也可以进入
+ *                      自定义方法内部。
  *               步出(Step Out Shift+F8)：
  *                      从方法内退出到方法调用处，调式的时候，有时候会跳入到自己不想
  *                      查看的方法体，这时时候使用步出。不论官方源码还是自定义方法，都可以。
