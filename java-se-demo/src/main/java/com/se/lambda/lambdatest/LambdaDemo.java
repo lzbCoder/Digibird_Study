@@ -1,5 +1,11 @@
-package com.se.lambda;
+package com.se.lambda.lambdatest;
 
+/**
+ * 匿名内部类与lambda表达式的比较
+ *
+ * @author lizhibin
+ * @since 2021/5/12
+ */
 public class LambdaDemo {
 
     public static void main(String[] args) {
@@ -43,8 +49,7 @@ public class LambdaDemo {
 
     //自定义Runnable接口
     interface MyRunnable{
-        public void run();
+        void run();
     }
-
 
 }
